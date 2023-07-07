@@ -1,0 +1,7 @@
+__pycache__
+build
+dist
+sounds
+_gui_.wxg
+ayrimla.spec
+output.log
