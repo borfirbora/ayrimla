@@ -15,9 +15,6 @@ from pydub.silence import split_on_silence
 from threading import Thread
 
 # begin wxGlade: dependencies
-file = open("output.log","w",encoding="utf-8")
-sys.stderr = file
-sys.stdout = file
 # end wxGlade
 
 # begin wxGlade: extracode
@@ -50,7 +47,7 @@ def split(self,v1,v2,v3,v4,v5, v6):
 			if v4 == 1:
 				ayrim_basligi = AudioSegment.from_file(f"sounds\\a{parca_no}.mp3",format="mp3")
 				birlesik_dosya = ayrim_basligi + silent + birlesik_dosya
-				birlesik_dosya.export(str(v5) + "\\" + str(v6) + "_" + str(parca_no) + ".mp3", format="mp3")
+				birlesik_dosya.export(str(v5) + "\\{:0>3}_".format(str(parca_no)) + str(v6) + ".mp3", format="mp3")
 				birlesik_dosya = AudioSegment.empty()
 				birlesik_dosya_suresi = 0
 				self.status.SetStatusText(u"" + str(parca_no) + ". parça oluşturuldu...",0)
@@ -59,14 +56,14 @@ def split(self,v1,v2,v3,v4,v5, v6):
 			elif v4 == 2:
 				ayrim_basligi = AudioSegment.from_file(f"sounds\\{parca_no}a.mp3",format="mp3")
 				birlesik_dosya = ayrim_basligi + silent + birlesik_dosya
-				birlesik_dosya.export(str(v5) + "\\" + str(v6) + "_" + str(parca_no) + ".mp3", format="mp3")
+				birlesik_dosya.export(str(v5) + "\\{:0>3}_".format(str(parca_no)) + str(v6) + ".mp3", format="mp3")
 				birlesik_dosya = AudioSegment.empty()
 				birlesik_dosya_suresi = 0
 				self.status.SetStatusText(u"" + str(parca_no) + ". parça oluşturuldu...",0)
 				screen_reader.speak("" + str(parca_no) + ". parça oluşturuldu...")
 				parca_no += 1
 			else:
-				birlesik_dosya.export(str(v5) + "\\" + str(v6) + "_" + str(parca_no) + ".mp3", format="mp3")
+				birlesik_dosya.export(str(v5) + "\\{:0>3}_".format(str(parca_no)) + str(v6) + ".mp3", format="mp3")
 				birlesik_dosya = AudioSegment.empty()
 				birlesik_dosya_suresi = 0
 				self.status.SetStatusText(u"" + str(parca_no) + ". parça oluşturuldu...",0)
@@ -80,15 +77,15 @@ def split(self,v1,v2,v3,v4,v5, v6):
 	if v4 == 1:
 		ayrim_basligi = AudioSegment.from_file(f"sounds\\a{parca_no}.mp3",format="mp3")
 		birlesik_dosya = ayrim_basligi + silent + birlesik_dosya
-		birlesik_dosya.export(str(v5) + "\\" + str(v6) + "_" + str(parca_no) + ".mp3", format="mp3")
+		birlesik_dosya.export(str(v5) + "\\{:0>3}_".format(str(parca_no)) + str(v6) + ".mp3", format="mp3")
 		self.status.SetStatusText(u"" + str(parca_no) + ". parça oluşturuldu...",0)
 	elif v4 == 2:
 		ayrim_basligi = AudioSegment.from_file(f"sounds\\{parca_no}a.mp3",format="mp3")
 		birlesik_dosya = ayrim_basligi + silent + birlesik_dosya
-		birlesik_dosya.export(str(v5) + "\\" + str(v6) + "_" + str(parca_no) + ".mp3", format="mp3")
+		birlesik_dosya.export(str(v5) + "\\{:0>3}_".format(str(parca_no)) + str(v6) + ".mp3", format="mp3")
 		self.status.SetStatusText(u"" + str(parca_no) + ". parça oluşturuldu...",0)
 	else:
-		birlesik_dosya.export(str(v5) + "\\" + str(v6) + "_" + str(parca_no) + ".mp3", format="mp3")
+		birlesik_dosya.export(str(v5) + "\\{:0>3}_".format(str(parca_no)) + str(v6) + ".mp3", format="mp3")
 		self.status.SetStatusText(u"" + str(parca_no) + ". parça oluşturuldu...",0)
 
 	dlg = wx.MessageDialog(self,f"{v6}.mp3 dosyanız, {v5} dizinine başarılı bir şekilde, {parca_no} ayrım olacak şekilde dışa aktarıldı.\n\nKlasör açılıyor.","Başarılı!")
