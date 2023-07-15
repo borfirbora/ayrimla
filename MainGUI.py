@@ -101,7 +101,7 @@ class MainGUI(wx.Frame):
 		kwds["style"] = kwds.get("style", 0) | wx.CAPTION | wx.CLIP_CHILDREN | wx.CLOSE_BOX | wx.MAXIMIZE | wx.MAXIMIZE_BOX | wx.MINIMIZE_BOX | wx.RESIZE_BORDER
 		wx.Frame.__init__(self, *args, **kwds)
 		self.SetSize((800, 600))
-		self.SetTitle(u"Ayrımla 1.0")
+		self.SetTitle(u"Ayrımla 1.1")
 
 		self.menu = wx.Menu()
 		self.bol = self.menu.Append(wx.ID_ANY,"Ayrımlara Böl","Yaptığınız ayarlara göre dosya bölme işlemine başlar.")
